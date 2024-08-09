@@ -1,0 +1,156 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Health Projects'),
+        backgroundColor: Color.fromARGB(154, 113, 48, 132),
+        centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            Container(
+              height: 120.0,
+              color: Color.fromARGB(154, 107, 6, 138),
+              alignment: Alignment.center,
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 48.0,
+              child: ListTile(
+                leading: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWErCrhcQKYROrY5fo0xeVtNHH-LFJAoVWgCagrDkaZ4vpsTjwAkqaBJ-JMcLhKkCRiuI&usqp=CAU',
+                  width: 24.0,
+                  height: 24.0,
+                  fit: BoxFit.cover,
+                ),
+                title: Text('ONCOSCREEN'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ONCOSCREENScreen()),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 48.0,
+              child: ListTile(
+                leading: Image.network(
+                  'https://scontent.fsbz3-1.fna.fbcdn.net/v/t39.30808-6/346652605_115350411573920_3461939369430890719_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH6vAoISCxMGaNDLBIfIsSTbU0ECq49jphtTQQKrj2OmCXglNBBp3dk2X246FSo3cxqKY93swCgif6MYyoP4RJj&_nc_ohc=IYE5rQ_6TGsQ7kNvgFhWgvt&_nc_ht=scontent.fsbz3-1.fna&oh=00_AYCelhT2ZSDtA6HUPXd1O18hhfN040ANeSBte44nsPzQ1g&oe=66B7E393',
+                  width: 24.0,
+                  height: 24.0,
+                  fit: BoxFit.cover,
+                ),
+                title: Text('ONCODIR'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ONCODIRScreen()),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(''),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            'Welcome to Main Screen!',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ONCOSCREENScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ONCOSCREEN'),
+        backgroundColor: Color.fromARGB(154, 107, 6, 138),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('This is ONCOSCREEN page.'),
+            Image.network(
+                'https://oncoscreen.health/wp-content/uploads/2023/03/1-ONCOSCREEN%20Logo.png'),
+            SizedBox(
+                height: 20), // Add some space between the image and the text
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ONCODIRScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ONCODIR'),
+        backgroundColor: Color.fromARGB(154, 107, 6, 138),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('This is the ONCODIR Page.'),
+            Image.network(
+                'https://scontent.fsbz3-1.fna.fbcdn.net/v/t39.30808-6/330202382_115350581573903_6003805116941229130_n.png?_nc_cat=111&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEbihMO-Vx0oH0Cixs2tqAZW15UUcfZ7itbXlRRx9nuK3mukH1SLbErhFbp0QEq2FzHan_RTeQuCv3HyubTWc-K&_nc_ohc=O5RxeqcyKc8Q7kNvgGyzC_E&_nc_ht=scontent.fsbz3-1.fna&oh=00_AYDpHeez4Mf5vBwxHnxmOAt60AZkc28UaLhL2jdLSo10iQ&oe=66B7F0FE'),
+            SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}
